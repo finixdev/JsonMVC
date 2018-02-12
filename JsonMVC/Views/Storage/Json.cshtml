@@ -1,0 +1,29 @@
+﻿@model JsonMVC.Models.SavedJsonViewModel
+
+@{
+    ViewData["Title"] = "Json";
+}
+
+<h2>Json</h2>
+
+<h4>SavedJsonViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        
+            
+            <div class="form-group">
+                <label asp-for="Item.Data" class="control-label"></label>
+                <input asp-for="Item.Data" class="form-control" />
+            </div>
+            <div class="form-group">
+                <a value="@Model.Link" class="btn btn-default" href="@Model.Link">@Model.Link</a>
+            </div>
+       
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

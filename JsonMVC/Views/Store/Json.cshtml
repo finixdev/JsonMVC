@@ -1,0 +1,40 @@
+﻿@model JsonItem
+
+@{
+    ViewData["Title"] = "JSON verisi kaydedildi";
+}
+
+<h2><a href="http://localhost:49619/api/json/@Model.Id">http://localhost:49619/api/json/@Model.Id</a></h2>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label class="control-label">JSON verisi kaydedildi:</label>
+            
+            @*<input class="form-control" value="@Model.Data" />*@
+            <div id="code-editor"></div>
+        </div>
+        <div class="form-group">
+            @Html.ActionLink("Yeni JSON verisi oluştur", "Index", "Store", new { id = string.Empty })
+        </div>
+
+    </div>
+</div>
+
+@section Scripts{
+    <style>
+        .CodeMirror {
+            border: 1px solid #eee;
+        }
+    </style>
+    <script>
+        var editor = CodeMirror(document.getElementById('code-editor'), {
+            mode: 'javascript',
+            lineNumbers: true,
+            readOnly: true,
+        });
+
+        var data = '@Html.Raw(Model.Data)';
+        editor.setValue(data);
+    </script>
+}
